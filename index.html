@@ -50,6 +50,46 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-03-29T04:37:41.000Z"><a href="/2016/03/29/tomcat-shutdown/">2016-03-29</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/03/29/tomcat-shutdown/">关于tomcat调用shutdown脚本关闭不了解决方案</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <pre><code>1.在catalina.sh文件开头加上CATALINA_PID=&quot;tomcat.pid&quot;
+（$CATALINA_PID变量是一个pid文件，用来存储tomcat运行的pid）
+
+2.在shutdown.sh文件结尾，
+  将 
+   exec &quot;$PRGDIR&quot;/&quot;$EXECUTABLE&quot; stop &quot;$@&quot;
+  改为
+   exec &quot;$PRGDIR&quot;/&quot;$EXECUTABLE&quot; stop -force &quot;$@&quot;
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-03-15T04:37:41.000Z"><a href="/2016/03/15/new-article/">2016-03-15</a></time>
       
       
@@ -156,6 +196,8 @@ feed:
   
     <li><a href="/categories/Hexo/">Hexo</a><small>1</small></li>
   
+    <li><a href="/categories/tomcat/">tomcat</a><small>1</small></li>
+  
   </ul>
 </div>
 
@@ -168,6 +210,8 @@ feed:
     <li><a href="/tags/Hexo/">Hexo</a><small>1</small></li>
   
     <li><a href="/tags/node-js/">node.js</a><small>1</small></li>
+  
+    <li><a href="/tags/tomcat/">tomcat</a><small>1</small></li>
   
   </ul>
 </div>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chouwane.github.io/"/>
-  <updated>2016-03-15T08:00:26.342Z</updated>
+  <updated>2016-04-05T05:26:07.632Z</updated>
   <id>http://chouwane.github.io/</id>
   
   <author>
@@ -14,6 +14,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于tomcat调用shutdown脚本关闭不了解决方案</title>
+    <link href="http://chouwane.github.io/2016/03/29/tomcat-shutdown/"/>
+    <id>http://chouwane.github.io/2016/03/29/tomcat-shutdown/</id>
+    <published>2016-03-29T04:37:41.000Z</published>
+    <updated>2016-04-05T05:26:07.632Z</updated>
+    
+    <content type="html">&lt;pre&gt;&lt;code&gt;1.在catalina.sh文件开头加上CATALINA_PID=&amp;quot;tomcat.pid&amp;quot;
+（$CATALINA_PID变量是一个pid文件，用来存储tomcat运行的pid）
+
+2.在shutdown.sh文件结尾，
+  将 
+   exec &amp;quot;$PRGDIR&amp;quot;/&amp;quot;$EXECUTABLE&amp;quot; stop &amp;quot;$@&amp;quot;
+  改为
+   exec &amp;quot;$PRGDIR&amp;quot;/&amp;quot;$EXECUTABLE&amp;quot; stop -force &amp;quot;$@&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;1.在catalina.sh文件开头加上CATALINA_PID=&amp;quot;tomcat.pid&amp;quot;
+（$CATALINA_PID变量是一个pid文件，用来存储tomcat运行的pid）
+
+2.在shutdown.sh文件结尾，
+  将 
+   e
+    
+    </summary>
+    
+      <category term="tomcat" scheme="http://chouwane.github.io/categories/tomcat/"/>
+    
+    
+      <category term="tomcat" scheme="http://chouwane.github.io/tags/tomcat/"/>
+    
+  </entry>
   
   <entry>
     <title>sitemap &amp; rss in Hexo</title>
